@@ -1,0 +1,30 @@
+en:
+  simple_form:
+    placeholders:
+      task:
+        name: Name of your task
+      line_item:
+        name: Name of your item
+        description: Description (optional)
+        quantity: 1
+    labels:
+      task:
+        name: Name
+      line_item:
+        name: Name
+        description: Description
+        man_day: Man-day
+      line_item_date:
+        date: Date
+
+  helpers:
+    submit:
+      task:
+        create: Create task
+        update: Update task
+      line_item:
+        create: Create item
+        update: Update item
+      line_item_date:
+        create: Create date
+        update: Update date

@@ -1,0 +1,10 @@
+<%= turbo_stream.replace @line_item do %>
+  <%= render @line_item,
+             task: @task,
+             line_item_date: @line_item_date %>
+<% end %>
+<%= render_turbo_stream_flash_messages %>
+<%= turbo_stream.update dom_id(@task, :total) do %>
+  <%= render "tasks/total",
+             task: @task %>
+<% end %>

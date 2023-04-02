@@ -1,0 +1,18 @@
+<%= simple_form_for [task, line_item_date, line_item],
+                    html: { class: "form line-item line-item--form" } do |f| %>
+  <%= form_error_notification(line_item) %>
+  <%= f.input :name,
+              wrapper_html: { class: "line-item__name" },
+              input_html: { autofocus: true } %>
+  <%= f.input :man_day,
+              wrapper_html: { class: "line-item__manday" } %>
+  <%= f.input :description,
+              wrapper_html: { class: "line-item__description" } %>
+
+  <div class="line-item__actions">
+    <%= link_to "Cancel",
+                task_path(task),
+                class: "btn btn--light" %>
+    <%= f.submit class: "btn btn--secondary" %>
+  </div>
+<% end %>
