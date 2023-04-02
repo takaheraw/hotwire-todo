@@ -1,3 +1,3 @@
-web: unset PORT && bin/rails server -b 0.0.0.0
+web: unset PORT && rdbg -n --open=vscode --host=0.0.0.0 --port=1235 -c -- bin/rails s -b 0.0.0.0
 js: yarn build --watch
 css: yarn build:css --watch

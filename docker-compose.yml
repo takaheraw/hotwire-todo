@@ -24,6 +24,7 @@ services:
     command: tail -f /dev/null
     ports:
       - '3000:3000'
+      - '12345:12345'
     volumes:
       - code:/app
     networks:
