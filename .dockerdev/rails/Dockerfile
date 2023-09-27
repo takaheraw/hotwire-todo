@@ -5,7 +5,7 @@ ARG RUBY_VERSION=3.2.2
 FROM ruby:${RUBY_VERSION}
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG NODE_VER=18.15.0
+ARG NODE_VER=18.17.0
 ARG BUNDLER_VERSION=2.4.10
 ENV GEM_HOME=/usr/local/bundle
 ENV BUNDLE_PATH=$GEM_HOME
@@ -35,6 +35,7 @@ RUN ARCH= && \
   apt-get install -yq --no-install-recommends \
     build-essential \
     ca-certificates \
+    chromium \
     curl \
     default-mysql-client \
     git \
@@ -52,6 +53,9 @@ RUN ARCH= && \
   truncate -s 0 /var/log/*log
 
 ENV PATH="${PATH}:${APP_ROOT}/bin:/opt/node/bin"
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV GROVER_NO_SANDBOX=true
 
 WORKDIR ${APP_ROOT}
 
