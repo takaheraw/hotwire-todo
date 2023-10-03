@@ -18,6 +18,10 @@ ENV APP_ROOT=/app
 ENV RAILS_ENV=development
 ENV BIND="0.0.0.0"
 
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV GROVER_NO_SANDBOX=true
+
 COPY .dockerdev/rails/Aptfile /tmp/Aptfile
 
 RUN ARCH= && \
@@ -38,6 +42,13 @@ RUN ARCH= && \
     chromium \
     curl \
     default-mysql-client \
+    fonts-freefont-ttf \
+    fonts-ipafont-gothic \
+    fonts-kacst \
+    fonts-khmeros \
+    fonts-thai-tlwg \
+    fonts-wqy-zenhei \
+    libxss1 \
     git \
     tini \
     wget \
@@ -53,9 +64,6 @@ RUN ARCH= && \
   truncate -s 0 /var/log/*log
 
 ENV PATH="${PATH}:${APP_ROOT}/bin:/opt/node/bin"
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
-ENV GROVER_NO_SANDBOX=true
 
 WORKDIR ${APP_ROOT}
 
